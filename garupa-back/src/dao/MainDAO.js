@@ -49,7 +49,7 @@ class MainDAO {
       const likes = await this.getLikes();
       return likes;
     } catch (err) {
-      return [];
+      return err.message;
     }
   }
 }

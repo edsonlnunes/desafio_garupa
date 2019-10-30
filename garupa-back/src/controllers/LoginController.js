@@ -9,13 +9,14 @@ class LoginController {
       const { user, password } = request.body;
       const passwordCrypto = md5(password);
 
-
       const connection = require('../dao/connectionFactory')();
       const userDAO = new UserDAO(connection);
 
       try {
+        // verifica informações no banco
         const userResult = await userDAO.login(user, passwordCrypto);
         if (userResult) {
+          // gera token
           const token = jwt.sign(userResult, process.env.SECRET, { expiresIn: '30 days' });
           response.status(200).json({ token, userResult });
         } else {
