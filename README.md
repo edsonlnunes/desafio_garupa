@@ -14,4 +14,4 @@ API:
  
   <br/> <br/>
 
-  Entrar dentro das pasta garupa-back e garupa-front e rodar o comando <b>npm install</b>
+  Antes de rodar o front-end e a api é preciso entrar dentro das pasta garupa-back e garupa-front e rodar o comando <b>npm install</b>
