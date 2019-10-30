@@ -11,14 +11,6 @@ function createDBConnection() {
         port: 5432
     });
 
-
-    // const pool = new Pool({
-    //     user: 'pitole',
-    //     host: 'localhost',
-    //     database: 'garupa',
-    //     password: 'Pm*023129',
-    //     port: 5432
-    // });
     pool.query(`SET SCHEMA 'garupa'`);
     return pool;
 }

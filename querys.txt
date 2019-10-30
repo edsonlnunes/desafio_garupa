@@ -14,20 +14,4 @@ create table likes(
 	constraint fk_likes_users foreign key (userid) references garupa.users(userid)
 );
 
-insert into garupa.users(name, username, password) values('Édson Martins', 'pitomartins', md5('coleqeras'));
-select * from garupa.likes;
-
---create table likes(
---	likeid serial not null,
---	userid int not null,
---	constraint pk_likes primary key (likeid),
---	constraint fk_likes_users foreign key (userid) references garupa.users(userid)
---);
---
---create table deslikes(
---	deslikeid serial not null,
---	userid int not null,
---	constraint pk_deslikes primary key (deslikeid),
---	constraint fk_deslikes_users foreign key (userid) references garupa.users(userid)
---);
-
+insert into garupa.users(name, username, password) values('Garupa Teste', 'garupa', md5('garupa'));
