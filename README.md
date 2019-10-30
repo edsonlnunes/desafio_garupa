@@ -3,5 +3,5 @@ API:
   <pre>
     # .env, don't commit to repo
     SECRET=26626f23f33687e3e206cbce0c39bcd6
-  <pre>
+  </pre>
   Este processo deve ser feito para gerar o token jwt
