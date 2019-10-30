@@ -1,21 +1,48 @@
-.login-box {
+.background{
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 1em;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgb(0, 186, 159);
+  width: 100%;
+  z-index: -1;
 }
 
-.login-box input {
-  display: block;
-  border-radius: 5px;
-  margin: 1em auto;
-  border: 1px solid #dbdbdb;
+.login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.login-box input[type='submit'] {
-  background: #3897f0;
-  border-color: #3897f0;
-  color: white;
+.content-login{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.box-login{
+  height: 45vh;
+  width: 40vh;
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.box-login form{
+  margin-top: 1rem;
+  flex: 1;
+}
+
+.box-login form button{
+  width: 100%;
+  background-color: rgb(0, 186, 159);
+}
+
+.error{
+  color: red;
+  font-weight: bold;
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import logo from '../images/main-logo.png';
 import '../css/login.css';
 
 export default class Login extends Component {
@@ -14,7 +15,6 @@ export default class Login extends Component {
 
   sendForm(event) {
     event.preventDefault();
-
     fetch(
       'http://localhost:3000/api/login',
       {
@@ -33,8 +33,7 @@ export default class Login extends Component {
     }).then(data => JSON.parse(data))
       .then(data => {
         localStorage.setItem('auth-token', data.token);
-        localStorage.setItem('userlogin', data.user.user);
-        this.props.history.push('/timeline');
+        this.props.history.push('/main');
       }).catch(error => {
         this.setState({ msg: error.message });
       });
@@ -42,14 +41,27 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="login-box">
-        <h1 className="header-logo">Instalura</h1>
-        <span>{this.state.msg}</span>
-        <form onSubmit={this.sendForm.bind(this)}>
-          <input type="text" placeholder="username" ref={elementLogin => this.userLogin = elementLogin} />
-          <input type="password" placeholder="password" ref={elementPassword => this.userPassowrd = elementPassword} />
-          <input type="submit" value="login" />
-        </form>
+      <div className="content-login">
+        <div className="background"></div>
+        <section className="login">
+          <div className="box-login">
+            <div>
+              <img src={logo} width="100" height="100" />
+            </div>
+            <form onSubmit={this.sendForm.bind(this)}>
+              <div className="form-group">
+                <label htmlFor="usuario">Usuário</label>
+                <input id="usuario" type="text" className="form-control" placeholder="Digite seu usuário" ref={elementLogin => this.userLogin = elementLogin} />
+              </div>
+              <div className="form-group">
+                <label htmlFor="senha">Senha</label>
+                <input type="password" className="form-control" id="senha" placeholder="Digite sua senha" ref={elementPassword => this.userPassowrd = elementPassword} />
+              </div>
+              <button type="submit" className="btn btn-success">Entrar</button>
+              <small className="error">{this.state.msg}</small>
+            </form>
+          </div>
+        </section>
       </div>
     );
   }

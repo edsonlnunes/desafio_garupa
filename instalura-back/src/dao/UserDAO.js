@@ -3,9 +3,9 @@ class UserDAO {
         this._connection = connection;
     }
 
-    login(user, password) {
-        return new Promise((resolve, reject) => {
-            this._connection.query(`
+    async login(user, password) {
+        try {
+            const { rows } = await this._connection.query(`
                 SELECT 
                     * 
                 FROM 
@@ -14,13 +14,13 @@ class UserDAO {
                     "username" = $1 
                 AND
                     "password" = $2
-            `, [user, password], (err, res) => {
-                if (err) {
-                    return reject(err.message);
-                }
-                return resolve(res.rows);
-            })
-        })
+                RETURNING 
+                    *
+            `, [user, password]);
+            return rows[0];
+        } catch (err) {
+            return err.message;
+        }
     }
 }
 

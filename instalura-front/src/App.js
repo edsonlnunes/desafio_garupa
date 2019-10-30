@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import './css/timeline.css';
-import Header from './components/Header';
-import TimeLine from './components/Main';
+import Main from './components/Main';
 
 class App extends Component {
   render() {

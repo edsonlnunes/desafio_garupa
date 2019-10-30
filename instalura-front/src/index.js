@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import './css/reset.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 import App from './App';
 import Login from './components/Login';
-import Logout from './components/Logout';
 
 
 const isAuthenticated = () => localStorage.getItem('auth-token') !== null;
@@ -45,7 +45,6 @@ ReactDOM.render(
       <Switch>
         <LoginRoute exact path="/" component={Login} />
         <PrivateRoute path="/main" component={App} />
-        <Route path="/logout" component={Logout} />
       </Switch>
     </Router>
   ), document.getElementById('root'));

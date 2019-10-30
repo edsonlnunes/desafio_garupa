@@ -14,11 +14,10 @@ class LoginController {
       const userDAO = new UserDAO(connection);
 
       try {
-        const data = await userDAO.login(user, passwordCrypto);
-        if (data && data.length > 0) {
-          const userData = data[0];
-          const token = jwt.sign(userData, process.env.SECRET, { expiresIn: '30 days' });
-          response.status(200).json({ token, user: userData });
+        const user = await userDAO.login(user, passwordCrypto);
+        if (user) {
+          const token = jwt.sign(user, process.env.SECRET, { expiresIn: '30 days' });
+          response.status(200).json({ token, user });
         } else {
           response.status(401).send('Usuário não encontrado');
         }
