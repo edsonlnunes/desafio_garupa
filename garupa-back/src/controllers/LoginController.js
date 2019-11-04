@@ -17,7 +17,7 @@ class LoginController {
         const userResult = await userDAO.login(user, passwordCrypto);
         if (userResult) {
           // gera token
-          const token = jwt.sign(userResult, process.env.SECRET, { expiresIn: '30 days' });
+          const token = jwt.sign(userResult, '26626f23f33687e3e206cbce0c39bcd6', { expiresIn: '30 days' });
           response.status(200).json({ token, userResult });
         } else {
           response.status(401).send('Usuário não encontrado');
