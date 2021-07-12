@@ -7,7 +7,7 @@ function createDBConnection() {
         user: 'dev',
         host: 'localhost',
         database: 'garupa',
-        password: 'Pm*023129',
+        password: 'Garupa19',
         port: 5432
     });
 
